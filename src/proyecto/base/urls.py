@@ -1,4 +1,5 @@
 from django.urls import path
-from . import views
+from .views import ListaPendientes
 
-urlpatterns = [path('', views.lista_pendientes, name='pendientes')]
+#urls path no puede mostrar clases , el metodo es as_view() para que si pueda
+urlpatterns = [path('', ListaPendientes.as_view(), name='pendientes')]
