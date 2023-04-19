@@ -23,7 +23,7 @@ class DetalleTarea(DetailView):
 
 class CrearTarea(CreateView):
     model = Tarea
-    fields = '__all__' #con esto cargamos todos los datos del formulario de los modelos todos los datos
+    fields = '__all__' #con esto cargamos todos los datos del formulario de los modelos todos los datos otra manera de cargar es []  
     success_url = reverse_lazy('tareas')
 
 
