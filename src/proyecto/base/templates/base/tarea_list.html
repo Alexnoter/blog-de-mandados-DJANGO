@@ -15,6 +15,7 @@
         <tr>
             <th>Elementos</th>
             <th></th>
+            <th></th>
         </tr>
 
         {% for tarea in tareas %}
@@ -22,6 +23,7 @@
         <tr>
             <td>{{tarea.titulo}}</td>
             <td><a href="{% url 'tarea' tarea.id %}">VER</a></td>
+            <td><a href="{% url 'editar-tarea' tarea.id %}">EDITAR</a></td>
         </tr>
 
         {% empty %}

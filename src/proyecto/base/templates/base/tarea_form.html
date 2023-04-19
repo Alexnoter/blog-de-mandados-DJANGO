@@ -10,6 +10,8 @@
 <body>
     <h1>Formulario de tareas</h1>
 
+    <a href="{% url 'tareas' %}">Volver</a>
+
     <form method="POST" action="">
         {% csrf_token %}
         {{form.as_p}}
