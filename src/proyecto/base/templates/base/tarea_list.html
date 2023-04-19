@@ -24,6 +24,7 @@
             <td>{{tarea.titulo}}</td>
             <td><a href="{% url 'tarea' tarea.id %}">VER</a></td>
             <td><a href="{% url 'editar-tarea' tarea.id %}">EDITAR</a></td>
+            <td><a href="{% url 'eliminar-tarea' tarea.id %}">ELIMINAR</a></td>
         </tr>
 
         {% empty %}
