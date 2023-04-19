@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from .models import Tarea
 
 
@@ -17,5 +19,11 @@ class DetalleTarea(DetailView):
     model = Tarea
     context_object_name = 'tarea'
     template_name = 'base/tarea.html' # con esto decimos que me reconosca que ahora sera tarea.html y no tarea_detail
+
+
+class CrearTarea(CreateView):
+    model = Tarea
+    fields = '__all__' #con esto cargamos todos los datos del formulario de los modelos todos los datos
+    success_url = reverse_lazy('tareas')
 
 
