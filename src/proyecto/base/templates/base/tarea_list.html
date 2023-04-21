@@ -1,56 +1,56 @@
-<!doctype html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-    {% if request.user.is_authenticated %}
-        <p>{{request.user}}</p>
-        <a href="{% url 'logout' %}">Salir</a>
-    {% else %}
-        <a href="{% url 'login' %}">Ingresar</a>
-
-    {% endif %}
+{% extends 'base/principal.html' %}
 
 
-    <hr>
+{% block content %}
 
-    <h1>Lista de pendientes</h1>
-    <a href="{% url 'crear-tarea' %}">Crear nueva tarea</a>
 
-    <form method="GET">
-        <input type="text" name="area-buscar" value="{{valor_buscado}}">
-        <input type="submit" value="Buscar">
-    </form>
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+    <a href="{% url 'logout' %}">Salir</a>
+{% else %}
+    <a href="{% url 'login' %}">Ingresar</a>
 
-    <table>
-        <tr>
-            <th>Elementos</th>
-            <th></th>
-            <th></th>
-        </tr>
+{% endif %}
 
-        {% for tarea in tareas %}
 
-        <tr>
-            <td>{{tarea.titulo}}</td>
-            <td><a href="{% url 'tarea' tarea.id %}">VER</a></td>
-            <td><a href="{% url 'editar-tarea' tarea.id %}">EDITAR</a></td>
-            <td><a href="{% url 'eliminar-tarea' tarea.id %}">ELIMINAR</a></td>
-        </tr>
+<hr>
 
-        {% empty %}
-        <h3>no hay elementos en esta lista</h3>
+<h1>Lista de pendientes</h1>
+<a href="{% url 'crear-tarea' %}">Crear nueva tarea</a>
 
-        {% endfor %}
+<form method="GET">
+    <input type="text" name="area-buscar" value="{{valor_buscado}}">
+    <input type="submit" value="Buscar">
+</form>
+
+<table>
+    <tr>
+        <th>Elementos</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    {% for tarea in tareas %}
+
+    <tr>
+        <td>{{tarea.titulo}}</td>
+
+        <td><a href="{% url 'editar-tarea' tarea.id %}">EDITAR</a></td>
+        <td><a href="{% url 'eliminar-tarea' tarea.id %}">ELIMINAR</a></td>
+    </tr>
+
+    {% empty %}
+    <h3>no hay elementos en esta lista</h3>
+
+    {% endfor %}
 
 
 
-    </table>
-</body>
-</html>
+</table>
+
+
+{% endblock content %}
+
+
+
+
