@@ -20,12 +20,16 @@
 
 </div>
 
-<!--<a href="{% url 'crear-tarea' %}">Crear nueva tarea</a>
+<div id="envoltorio-agregar-buscar">
+    <form method="GET" style="margin-top: 20px; display: flex;">
+        <input type="text" name="area-buscar" value="{{valor_buscado}}">
+        <input class="boton" type="submit" value="Buscar">
+    </form>
+    <a id="enlace-agregar" href="{% url 'crear-tarea' %}">&#x1F7A5;</a>
+</div>
 
-<form method="GET">
-    <input type="text" name="area-buscar" value="{{valor_buscado}}">
-    <input type="submit" value="Buscar">
-</form>-->
+
+
 
 <div class="envoltorio-items-tarea">
     {% for tarea in tareas %}
